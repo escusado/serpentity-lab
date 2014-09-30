@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Serpentoids</title>
+
+    <!-- css -->
+    <link href="/assets/css/vendor/elastic.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/vendor/elastic.print.css" rel="stylesheet" type="text/css">
+
+    <link href="/assets/css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- js -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="/neon/neon.js"></script>
+    <script src="/neon/stdlib/custom_event.js"></script>
+    <script src="/neon/stdlib/custom_event_support.js"></script>
+    <script src="/neon/stdlib/node_support.js"></script>
+    <script src="/neon/stdlib/bubbling_support.js"></script>
+
+    <script src="/assets/js/vendor/jquery-2.1.1.min.js"></script>
+    <script src="/assets/js/vendor/elastic.js"></script>
+    <script src="/assets/js/vendor/Widget.js"></script>
+
+    <script src="/assets/js/serpentity/dist/serpentity.js"></script>
+    <script src="/assets/js/phaser-official/build/phaser.js"></script>
+
+
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+        overflow: hidden
+        }
+    </style>
+  </head>
+
+
+    <%= Ctx.render(locals.experiment + '/page', locals) %>
+
+</html>

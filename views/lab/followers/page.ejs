@@ -1,0 +1,43 @@
+<script src="/assets/js/chroma-js/chroma.js"></script>
+
+<%
+
+    jsFiles = [
+        'js/app',
+
+        'js/components/position',
+        'js/components/display',
+        'js/components/motion',
+        'js/components/motion_controls',
+        'js/components/mouse_follower',
+        'js/components/entity_follower',
+        'js/components/display_shape',
+        'js/components/line',
+
+        'js/nodes/movement',
+        'js/nodes/render',
+        'js/nodes/mouse_follower',
+        'js/nodes/entity_follower',
+        'js/nodes/render_shape',
+        'js/nodes/line_renderer',
+
+        'js/systems/main_control',
+        'js/systems/render',
+        'js/systems/mouse_follower',
+        'js/systems/entity_follower',
+        'js/systems/render_shape',
+        'js/systems/line_renderer',
+
+        'js/factories/entity_factory'
+    ];
+
+%>
+
+<%= Ctx.renderExperimentDependencies(jsFiles, locals.experiment) %>
+
+<script>
+  Serpentoids.init();
+</script>
+
+<body>
+</body>
