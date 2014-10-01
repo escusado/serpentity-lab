@@ -3,9 +3,9 @@ Class(Serpentoids.Systems, "LineRenderer").inherits(Serpentity.System)({
         keyboard : null,
         renderables : null,
 
-        // scale : chroma.scale(['#FFCF40', '#FF9F40', '#FF6F40', '#A1283B' ,'#3D2040']).mode('lab'), //theme oranges purple
+        scale : chroma.scale(['#FFCF40', '#FF9F40', '#FF6F40', '#A1283B' ,'#3D2040']).mode('lab'), //theme oranges purple
         // scale : chroma.scale(['#8A9B0F', '#F8CA00', '#E97F02' ,'#BD1550']).mode('lab'), //oranges over purple
-        scale : chroma.scale(['#E5FCC2', '#9DE0AD', '#45ADA8', '#547980']).mode('lab'), //beige to teal
+        // scale : chroma.scale(['#E5FCC2', '#9DE0AD', '#45ADA8', '#547980']).mode('lab'), //beige to teal
 
         init : function init(config) {
             var property;
