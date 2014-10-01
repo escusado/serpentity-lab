@@ -43,6 +43,7 @@ Class('Server')({
 
             //Static routes
             app.use('/assets', express.static('assets/'));
+            app.use('/bower_components', express.static('bower_components/'));
             app.use('/lab', express.static(experimentsPath));
 
             return this;
