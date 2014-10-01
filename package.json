@@ -1,7 +1,7 @@
 {
-  "name": "Serpentity Lab",
-  "description": "Experiments using the framework",
-  "repository": "https://github.com/escusado/serpentity-lab",
+  "name": "neon-bootsrap",
+  "description": "An elemental stack for web apps",
+  "repository": "https://github.com/escusado/neon-bootstrap",
   "version": "0.1.0",
   "engines": {
     "node": "0.10.30"
