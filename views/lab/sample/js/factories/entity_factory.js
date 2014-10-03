@@ -13,8 +13,8 @@ Module(SerpentityApp, "EntityFactory")({
         entity = new (Serpentity.Entity)();
 
         entity.addComponent(new SerpentityApp.Components.Position({
-            x: 100,
-            y: 100
+            x: 20,
+            y: 20
         }));
 
         entity.addComponent(new SerpentityApp.Components.DisplayShape({
