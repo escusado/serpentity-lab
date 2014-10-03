@@ -47,11 +47,13 @@ Module('SerpentityApp')({
 
     _initializeEntities : function _initializeEntities(){
         var entity = this.entityFactory.createPiramidEntity({
-            topFloorWidth   : 100,
+            topFloorWidth   : 10,
             topFloorPadding : 100,
             howManyFloors   : 30,
             // colorScale      : chroma.scale(['#FFCF40', '#FF9F40', '#FF6F40', '#A1283B' ,'#3D2040']).mode('lab') //oranges over purple
-            colorScale      : chroma.scale(['#E5FCC2', '#9DE0AD', '#45ADA8', '#547980']).mode('lab') //beige to teal
+            // colorScale      : chroma.scale(['#E5FCC2', '#9DE0AD', '#45ADA8', '#547980']).mode('lab') //beige to teal
+            colorScale      : chroma.scale(['#BD1550',  '#E97F02','#F8CA00' ,'#8A9B0F']).mode('lab') //heatmap
+
         });
     }
 

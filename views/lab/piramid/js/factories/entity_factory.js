@@ -9,10 +9,10 @@ Module(SerpentityApp, "EntityFactory")({
 
         for(var i = config.howManyFloors; i >= 0 ; i -= 1){
             this.createSquareFollowerRestrictedEntity({
-                minWidth : widthDelta * i,
-                padding : paddingDelta * i,
+                minWidth : (widthDelta * i) - (paddingDelta * i),
+                padding : 0,
                 color : config.colorScale((colorDelta * i)/100).hex(),
-                speed : 0.1
+                speed : colorDelta / 100
             });
         }
 
@@ -36,9 +36,6 @@ Module(SerpentityApp, "EntityFactory")({
                 y : viewPortSize.height / 2
             }
         });
-
-        // ((viewPortSize.height / 2) - (minHeight / 2)) + padding
-        // ((viewPortSize.height / 2) + (minHeight / 2)) + padding
 
         rect.addComponent(new SerpentityApp.Components.FollowMouseRestricted({
             speed : config.speed,

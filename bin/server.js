@@ -61,12 +61,6 @@ Class('Server')({
 
         _loadExperiment : function _loadExperiment(req, res){
 
-            // var experimentPath, experimentPageContent, renderedPage;
-
-            // experimentPath = experimentsPath + req.params.experiment + '.ejs';
-            // experimentPageContent = fs.readFileSync(experimentPath, 'utf-8');
-            // renderedPage = TmProc.result(experimentPageContent, {Ctx : ThuliumContext, locals : {experiment : req.params.experiment}});
-
             renderedPage = ThuliumContext.render('experimentsTemplate' , {experiment : req.params.experiment});
 
             res.end(renderedPage);
@@ -109,13 +103,9 @@ Class('ThuliumContext')({
     renderExperimentDependencies : function renderExperimentDependencies(jsFilesArray, experiment){
         var dependenciesBuffer = '';
 
-        console.log('///', experiment);
-
         jsFilesArray.forEach(function(fileName){
             dependenciesBuffer += '<script src="/lab/' + experiment + '/' + fileName +'.js"></script>';
         });
-
-        console.log('>>>', dependenciesBuffer);
 
         return dependenciesBuffer;
     }
