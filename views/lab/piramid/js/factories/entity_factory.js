@@ -1,7 +1,7 @@
 Module(SerpentityApp, "EntityFactory")({
 
     createPiramidEntity : function createPiramidEntity(config){
-        var bottomFloorWidth = SerpentityApp.game.width * 2,
+        var bottomFloorWidth = (SerpentityApp.game.width * 2) + config.topFloorPadding,
             widthDelta = (bottomFloorWidth)/config.howManyFloors,
             paddingDelta = config.topFloorPadding / config.howManyFloors,
             colorDelta = 100 / config.howManyFloors;
