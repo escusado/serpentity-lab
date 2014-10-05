@@ -1,0 +1,34 @@
+<script src="/bower_components/chroma-js/chroma.js"></script>
+
+<%
+
+    jsFiles = [
+        'js/serpentity_app',
+
+        'js/components/position',
+        'js/components/display_shape',
+        'js/components/color_scale',
+        'js/components/tint',
+        'js/components/tint_fader',
+
+        'js/nodes/render_shape',
+        'js/nodes/fading_tint',
+        'js/nodes/tinted_shape',
+
+        'js/systems/render_shape',
+        'js/systems/tint_fader',
+        'js/systems/tinted_shape_renderer',
+
+        'js/factories/entity_factory'
+    ];
+
+%>
+
+<%= Ctx.renderExperimentDependencies(jsFiles, locals.experiment) %>
+
+<script>
+  SerpentityApp.init();
+</script>
+
+<body>
+</body>

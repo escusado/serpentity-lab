@@ -42,20 +42,30 @@ Module('SerpentityApp')({
 
     _initializeSystems : function initializeSystems() {
         this.engine.addSystem(new SerpentityApp.Systems.PhaserShapeRenderer());
-        this.engine.addSystem(new SerpentityApp.Systems.MouseFollowerRestricted());
+        this.engine.addSystem(new SerpentityApp.Systems.TintFader());
+        this.engine.addSystem(new SerpentityApp.Systems.TintedShapeRenderer());
     },
 
     _initializeEntities : function _initializeEntities(){
-        var entity = this.entityFactory.createPiramidEntity({
-            topFloorWidth   : 10,
-            topFloorPadding : 100,
-            howManyFloors   : 30,
-            // colorScale      : chroma.scale(['#FFCF40', '#FF9F40', '#FF6F40', '#A1283B' ,'#3D2040']).mode('lab') //oranges over purple
-            colorScale      : chroma.scale(['#E5FCC2', '#9DE0AD', '#45ADA8', '#547980']).mode('lab') //beige to teal
-            // colorScale      : chroma.scale(['#BD1550',  '#E97F02','#F8CA00' ,'#8A9B0F']).mode('lab') //heatmap
-            // colorScale      : chroma.scale(['#FF1200', '#000000']).mode('lab') //heatmap
 
+        var circle = SerpentityApp.game.add.graphics(0, 0);
+
+        // draw a dot
+        circle.lineStyle(0);
+        circle.beginFill(0xFFFFFF);
+        circle.drawCircle(0,0,3);
+
+        var entity = this.entityFactory.createFadingDotEntity({
+            colorScale : chroma.scale(['#FFCF40', '#FF9F40', '#FF6F40', '#A1283B' ,'#3D2040']).mode('lab'),
+            fadingSpeed : 0.2,
+            position : {
+                x : 100,
+                y : 100
+            },
+            shape : circle
         });
+
+        this.engine.addEntity(entity);
     }
 
 });

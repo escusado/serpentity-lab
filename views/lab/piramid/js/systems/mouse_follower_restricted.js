@@ -31,24 +31,24 @@ Class(SerpentityApp.Systems, "MouseFollowerRestricted").inherits(Serpentity.Syst
 
                 if( Math.round(x1) === Math.round(x2) && Math.round(y1) === Math.round(y2) ) { return; } //do not process if they are the same
 
-                nextX = Math.round( follower.position.x + (dx * follower.follow_mouse_restricted.speed) )
-                nextY = Math.round( follower.position.y + (dy * follower.follow_mouse_restricted.speed) )
+                nextX = follower.position.x + (dx * follower.follow_mouse_restricted.speed)
+                nextY = follower.position.y + (dy * follower.follow_mouse_restricted.speed)
 
-                if(nextY < follower.follow_mouse_restricted.limitTop){
-                    nextY = follower.follow_mouse_restricted.limitTop;
-                }
+                // if(nextY < follower.follow_mouse_restricted.limitTop){
+                //     nextY = follower.follow_mouse_restricted.limitTop;
+                // }
 
-                if(nextY > follower.follow_mouse_restricted.limitBottom){
-                    nextY = follower.follow_mouse_restricted.limitBottom;
-                }
+                // if(nextY > follower.follow_mouse_restricted.limitBottom){
+                //     nextY = follower.follow_mouse_restricted.limitBottom;
+                // }
 
-                if(nextX < follower.follow_mouse_restricted.limitLeft){
-                    nextX = follower.follow_mouse_restricted.limitLeft;
-                }
+                // if(nextX < follower.follow_mouse_restricted.limitLeft){
+                //     nextX = follower.follow_mouse_restricted.limitLeft;
+                // }
 
-                if(nextX > follower.follow_mouse_restricted.limitRight){
-                    nextX = follower.follow_mouse_restricted.limitRight;
-                }
+                // if(nextX > follower.follow_mouse_restricted.limitRight){
+                //     nextX = follower.follow_mouse_restricted.limitRight;
+                // }
 
                 follower.position.x = nextX;
                 follower.position.y = nextY;

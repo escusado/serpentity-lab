@@ -19,11 +19,6 @@ Class(Serpentoids.Systems, "MouseFollower").inherits(Serpentity.System)({
         update : function update(dt) {
             this.renderables.forEach(function (renderable) {
 
-                // renderable.position.x = renderable.follow_mouse.input.x + Phaser.Easing.Elastic.In(renderable.follow_mouse.speed);
-                // renderable.position.y = renderable.follow_mouse.input.y + Phaser.Easing.Elastic.In(renderable.follow_mouse.speed);
-
-                // renderable.position.x = renderable.follow_mouse.input.x - (renderable.follow_mouse.input.x*renderable.follow_mouse.speed);
-
                 var x1 = renderable.position.x,
                     y1 = renderable.position.y,
 

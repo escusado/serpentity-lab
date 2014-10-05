@@ -12,8 +12,9 @@ Module(SerpentityApp, "EntityFactory")({
                 minWidth : (widthDelta * i) - (paddingDelta * i),
                 padding : 0,
                 color : config.colorScale((colorDelta * i)/100).hex(),
-                speed : colorDelta / 100
+                speed : Math.pow(config.howManyFloors-i, 2)/10000
             });
+
         }
 
     },
@@ -57,7 +58,7 @@ Module(SerpentityApp, "EntityFactory")({
         var entity,
             rect = SerpentityApp.game.add.graphics(0, 0);
 
-        rect.lineStyle(0);
+        rect.lineStyle(1, Phaser.Color.hexToRGB('#000000'), 0.1);
         rect.beginFill(Phaser.Color.hexToRGB(config.color));
         rect.drawRect((config.width/2)*-1, (config.height/2)*-1, config.width, config.height);
 
