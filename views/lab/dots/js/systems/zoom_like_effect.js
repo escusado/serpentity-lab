@@ -46,6 +46,8 @@ Class(SerpentityApp.Systems, "ZoomLikeEffect").inherits(Serpentity.System)({
                     nextX = zoomable.ZoomLikeEffect._originalPosition.x - zoomable.Position.x;
                     nextY = zoomable.ZoomLikeEffect._originalPosition.y - zoomable.Position.y;
                 } else {
+
+
                     nextX = (zoomable.ZoomLikeEffect.effectDistance - localTargetX) - zoomable.Position.x;
                     nextY = (zoomable.ZoomLikeEffect.effectDistance - localTargetY) - zoomable.Position.y;
                 }

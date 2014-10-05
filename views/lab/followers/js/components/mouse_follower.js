@@ -1,4 +1,4 @@
-Class(Serpentoids.Components, "MouseFollower").inherits(Serpentoids.Component)({
+Class(Serpentoids.Components, "MouseFollower").inherits(Serpentity.Component)({
     prototype : {
 
         speed : null,
