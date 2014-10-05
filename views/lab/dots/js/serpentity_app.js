@@ -33,7 +33,7 @@ Module('SerpentityApp')({
 
     _create : function create() {
         console.log("Creating.");
-        this.game.stage.backgroundColor = '#211122';
+        this.game.stage.backgroundColor = '#333333';
     },
 
     _update : function update(game) {
@@ -44,28 +44,23 @@ Module('SerpentityApp')({
         this.engine.addSystem(new SerpentityApp.Systems.PhaserShapeRenderer());
         this.engine.addSystem(new SerpentityApp.Systems.TintFader());
         this.engine.addSystem(new SerpentityApp.Systems.TintedShapeRenderer());
+        this.engine.addSystem(new SerpentityApp.Systems.MouseFollower());
+        this.engine.addSystem(new SerpentityApp.Systems.ZoomLikeEffect());
     },
 
     _initializeEntities : function _initializeEntities(){
 
-        var circle = SerpentityApp.game.add.graphics(0, 0);
+        var mouseFollowerEntity = this.entityFactory.createMouseFollower();
 
-        // draw a dot
-        circle.lineStyle(0);
-        circle.beginFill(0xFFFFFF);
-        circle.drawCircle(0,0,3);
+        SerpentityApp.engine.addEntity(mouseFollowerEntity);
 
-        var entity = this.entityFactory.createFadingDotEntity({
-            colorScale : chroma.scale(['#FFCF40', '#FF9F40', '#FF6F40', '#A1283B' ,'#3D2040']).mode('lab'),
-            fadingSpeed : 0.2,
-            position : {
-                x : 100,
-                y : 100
-            },
-            shape : circle
+        this.entityFactory.createZoomableLikeDot({
+            zoomSize : 50,
+            effectDistance : 100,
+            targetEntity : mouseFollowerEntity
         });
 
-        this.engine.addEntity(entity);
+
     }
 
 });
