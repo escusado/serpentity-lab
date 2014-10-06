@@ -59,10 +59,11 @@ Module(SerpentityApp, "EntityFactory")({
         circle.drawRect(0,0,20, 20);
 
         var entity = SerpentityApp.entityFactory.createFadingDot({
-            colorScale : chroma.scale(['#FFCF40', '#FF9F40', '#FF6F40', '#A1283B' ,'#3D2040']).mode('lab').domain([0,1], 10),
-            // colorScale : chroma.scale(['#FF7357', '#FFED83', '#88FF74', '#8AADFF' ,'#AE8DFF', '#FF98FA']),
+            // colorScale : chroma.scale(['#FFCF40', '#FF9F40', '#FF6F40', '#A1283B' ,'#3D2040']).mode('lab').domain([0,1], 10),
+            // colorScale : chroma.scale(['#FF7357', '#FFED83', '#88FF74', '#8AADFF' ,'#AE8DFF', '#FF98FA']).mode('lab').domain([0,1], 12),
+            colorScale : chroma.scale(config.pallete).mode('lab').domain([0,1], config.pallete.length*3),
 
-            fadingSpeed : 2, //Math.random()
+            fadingSpeed : 1, //Math.random()
             position : {
                 x : config.position.x,
                 y : config.position.y
@@ -82,7 +83,8 @@ Module(SerpentityApp, "EntityFactory")({
     },
 
     createDotGrid : function createDotGrid(config){
-        var rows = (SerpentityApp.game.width / config.padding) -1,
+        var pallete = Palletes.getRandom(),
+            rows = (SerpentityApp.game.width / config.padding) -1,
             cols = (SerpentityApp.game.height / config.padding) -1,
             mouseFollowerEntity = SerpentityApp.entityFactory.createMouseFollower();
 
@@ -98,7 +100,8 @@ Module(SerpentityApp, "EntityFactory")({
                     },
                     zoomFactor : 2,
                     effectDistance : 80,
-                    targetEntity : mouseFollowerEntity
+                    targetEntity : mouseFollowerEntity,
+                    pallete : pallete
                 });
 
                 SerpentityApp.engine.addEntity(entity);
