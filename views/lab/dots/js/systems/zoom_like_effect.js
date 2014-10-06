@@ -45,15 +45,38 @@ Class(SerpentityApp.Systems, "ZoomLikeEffect").inherits(Serpentity.System)({
                 if(distanceToTarget > zoomable.ZoomLikeEffect.effectDistance){
                     nextX = zoomable.ZoomLikeEffect._originalPosition.x - zoomable.Position.x;
                     nextY = zoomable.ZoomLikeEffect._originalPosition.y - zoomable.Position.y;
+
+                    zoomFactor = 1 - zoomable.DisplayShape.shape.scale.x;
+                    zoomDelta = 0.02;
                 } else {
 
+                    nextX = (zoomable.ZoomLikeEffect._originalPosition.x - localTargetX) - zoomable.Position.x;
+                    nextY = (zoomable.ZoomLikeEffect._originalPosition.y - localTargetY) - zoomable.Position.y;
 
-                    nextX = (zoomable.ZoomLikeEffect.effectDistance - localTargetX) - zoomable.Position.x;
-                    nextY = (zoomable.ZoomLikeEffect.effectDistance - localTargetY) - zoomable.Position.y;
+                    zoomFactor = zoomable.ZoomLikeEffect.zoomFactor - zoomable.DisplayShape.shape.scale.x;
+                    zoomDelta = 0.9;
+
+                    zoomable.TintFader._tintIndex = 0;
+
+                    SerpentityApp.game.world.bringToTop(zoomable.DisplayShape.shape);
                 }
 
-                zoomable.Position.x = zoomable.Position.x + (nextX * 0.5);
-                zoomable.Position.y = zoomable.Position.y + (nextY * 0.5);
+                // nextX = zoomable.ZoomLikeEffect._originalPosition.x - localTargetX;
+                // nextY = zoomable.ZoomLikeEffect._originalPosition.y - localTargetY;
+
+                // console.log('>>', nextX, nextY);
+
+                zoomable.Position.x = zoomable.Position.x + (nextX * 0.2);
+                zoomable.Position.y = zoomable.Position.y + (nextY * 0.2);
+
+                // zoomable.Position.x = nextX;
+                // zoomable.Position.y = nextY;
+
+                zoomable.DisplayShape.shape.scale.x = zoomable.DisplayShape.shape.scale.x + (zoomFactor * zoomDelta);
+                zoomable.DisplayShape.shape.scale.y = zoomable.DisplayShape.shape.scale.y + (zoomFactor * zoomDelta);
+
+
+                // SerpentityApp.game.debug.geom( new Phaser.Line(zoomable.Position.x, zoomable.Position.y, zoomable.ZoomLikeEffect._originalPosition.x, zoomable.ZoomLikeEffect._originalPosition.y) );
 
             });
         }

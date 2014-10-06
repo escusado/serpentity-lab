@@ -50,16 +50,9 @@ Module('SerpentityApp')({
 
     _initializeEntities : function _initializeEntities(){
 
-        var mouseFollowerEntity = this.entityFactory.createMouseFollower();
-
-        SerpentityApp.engine.addEntity(mouseFollowerEntity);
-
-        this.entityFactory.createZoomableLikeDot({
-            zoomSize : 50,
-            effectDistance : 100,
-            targetEntity : mouseFollowerEntity
+        this.entityFactory.createDotGrid({
+            padding : 20
         });
-
 
     }
 
